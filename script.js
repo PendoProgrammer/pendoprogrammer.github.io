@@ -277,17 +277,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-// Theme Toggle - Defaults to LIGHT mode now
+// Theme Toggle - Default Light Mode
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
 
-// Remove dark theme detection (forces light mode by default)
+// Only activate dark mode if previously selected
 if (localStorage.getItem('theme') === 'dark') {
     body.setAttribute('data-theme', 'dark');
-} // Else: light mode remains default
+}
 
 themeToggle.addEventListener('click', () => {
-    body.hasAttribute('data-theme') 
-        ? (body.removeAttribute('data-theme'), localStorage.setItem('theme', 'light'))
-        : (body.setAttribute('data-theme', 'dark'), localStorage.setItem('theme', 'dark'));
+    if (body.hasAttribute('data-theme')) {
+        body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navbar = document.querySelector('.navbar');
+
+menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    menuToggle.querySelector('i').classList.toggle('fa-times');
+});
+
+// Close menu when clicking links
+document.querySelectorAll('.navbar ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+    });
 });

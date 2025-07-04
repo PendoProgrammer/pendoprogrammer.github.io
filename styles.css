@@ -1699,3 +1699,132 @@ section {
   border-radius: 0.5rem;
   font-weight: 500;
 }
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+/* Theme Toggle Fix */
+.theme-toggle {
+  position: absolute;
+  top: 1.8rem;
+  right: 6rem;
+  width: 4.5rem;
+  height: 2.2rem;
+  background-color: var(--secondary-color);
+  border-radius: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  transition: var(--transition);
+}
+
+.theme-toggle i {
+  font-size: 1.4rem;
+  color: var(--white);
+}
+
+/* Mobile Menu Fix */
+.menu-toggle {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none;
+  z-index: 1001;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-left: 3rem;
+}
+
+.navbar ul li a {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1.8rem;
+    right: 2rem;
+  }
+
+  .theme-toggle {
+    right: 8rem;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 8rem;
+    left: -100%;
+    width: 80%;
+    height: calc(100vh - 8rem);
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    left: 0;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .navbar ul li {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .theme-toggle {
+    right: 6rem;
+    width: 4rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+}
