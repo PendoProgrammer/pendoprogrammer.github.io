@@ -277,3 +277,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// Theme Toggle - Defaults to LIGHT mode now
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+// Remove dark theme detection (forces light mode by default)
+if (localStorage.getItem('theme') === 'dark') {
+    body.setAttribute('data-theme', 'dark');
+} // Else: light mode remains default
+
+themeToggle.addEventListener('click', () => {
+    body.hasAttribute('data-theme') 
+        ? (body.removeAttribute('data-theme'), localStorage.setItem('theme', 'light'))
+        : (body.setAttribute('data-theme', 'dark'), localStorage.setItem('theme', 'dark'));
+});
