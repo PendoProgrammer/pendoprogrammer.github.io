@@ -1,0 +1,337 @@
+<!-- ==============================================
+   certificate.html – Single‑file page showing all certificates
+   Author: Mr. Ali
+   Description: Dark‑themed gallery of 12 certificates with images,
+                titles, descriptions, dates & yellow accents.
+   All HTML, CSS & JS sit inside this one document.
+   Replace image and PDF paths as needed.
+   ================================================= -->
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+    <link rel="shortcut icon" href="ali.png" type="image/x-icon">
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="shortcut icon" href="images/ali.png" type="image/x-icon">
+     <title>My Certificates</title>
+     <!-- Google Font for clean typography -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+     <!-- Font Awesome for award / link icons (CDN) -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+   
+     <style>
+       /* ------------------ Root palette ------------------ */
+       :root {
+         --bg: #0e0e0e;          /* page background (very dark) */
+         --text: #ffffff;        /* standard text */
+         --accent:  #FFAC00;;      /* yellow accent for icons & buttons */
+         --card: #1b1b1b;        /* slightly lighter than bg for cards */
+         --radius: 12px;         /* rounded corner radius */
+         --shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* hover shadow */
+       }
+   
+       /* --------------- Global resets ------------------- */
+       * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+       }
+   
+       body {
+         font-family: "Inter", sans-serif;
+         background: var(--bg);
+         color: var(--text);
+         line-height: 1.6;
+         -webkit-font-smoothing: antialiased;
+       }
+   
+       a {
+         color: inherit; /* keep link text white by default */
+         text-decoration: none;
+       }
+   
+       /* -------------- Layout wrappers ------------------ */
+       .container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 2rem 1rem;
+       }
+   
+       h1 {
+         font-size: 2.4rem;
+         font-weight: 700;
+         text-align: center;
+         margin-bottom: 2rem;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 0.5rem;
+       }
+   
+       /* --------------- Grid of cards ------------------- */
+       .grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+         gap: 1.5rem;
+       }
+   
+       .card {
+         background: var(--card);
+         border-radius: var(--radius);
+         overflow: hidden;
+         transition: transform 0.3s, box-shadow 0.3s;
+       }
+   
+       .card:hover {
+         transform: translateY(-6px);
+         box-shadow: var(--shadow);
+       }
+   
+       /* Thumbnail image */
+       .card img {
+         width: 100%;
+         display: block;
+       }
+   
+       /* Card textual content */
+       .card-content {
+         padding: 1rem;
+       }
+   
+       .card-content h3 {
+         font-size: 1.2rem;
+         font-weight: 600;
+         margin-bottom: 0.5rem;
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+       }
+   
+       .card-content h3 i {
+         color: var(--accent);
+       }
+   
+       .card-content p {
+         font-size: 0.9rem;
+         margin-bottom: 0.5rem;
+       }
+   
+       .date {
+         font-size: 0.8rem;
+         color: #bbbbbb;
+       }
+   
+       /* Optional button style (if you add explicit button links) */
+       .btn {
+         display: inline-block;
+         margin-top: 0.75rem;
+         background: var(--accent);
+         color: #000;
+         font-weight: 600;
+         padding: 0.5rem 1rem;
+         border-radius: var(--radius);
+         text-decoration: none;
+         transition: background 0.3s;
+       }
+   
+       .btn:hover {
+         background:  #FFAC00; /* slightly darker yellow on hover */
+       }
+   
+       /* -------------- Tiny scroll‑to‑top button ---------------- */
+       #toTop {
+         position: fixed;
+         bottom: 24px;
+         right: 24px;
+         width: 42px;
+         height: 42px;
+         background: var(--accent);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         opacity: 0;
+         visibility: hidden;
+         transition: opacity 0.3s;
+         z-index: 100;
+       }
+   
+       #toTop i {
+         color: #000;
+         font-size: 1rem;
+       }
+   
+       #toTop.show {
+         opacity: 1;
+         visibility: visible;
+       }
+     </style>
+   </head>
+   
+   <body>
+     <div class="container">
+       <!-- Page title with icon -->
+       <h1><i class="fa-solid fa-award" style="color: var(--accent);"></i> My Certificates</h1>
+   
+       <!-- ================= Certificate Grid ================ -->
+       <div class="grid">
+         <!-- ========= CARD TEMPLATE =========
+              * Each card is a link (<a>) so the whole area is clickable.
+              * Replace href + img src with your actual file paths.          -->
+   
+        <!-- 1. GitHub Certification via LinkedIn (Jan 15, 2025) -->
+<a class="card" href="certificates/speed-debug-runner-up.pdf" target="_blank">
+    <img src="Certificates/1.jpg" alt="GitHub Certification via LinkedIn" />
+    <div class="card-content">
+      <h3><i class="fa-brands fa-github"></i> GitHub – LinkedIn Verified</h3>
+      <p>Issued by LinkedIn for GitHub contribution excellence.</p>
+      <span class="date">Jan 15, 2025 – 8:40 PM</span>
+    </div>
+  </a>
+  
+   
+       <!-- 2. Internship – M.A Academy of Sciences (May 29, 2024) -->
+<a class="card" href="certificates/speed-debug-winner.pdf" target="_blank">
+    <img src="Certificates/2.png" alt="Internship – M.A Academy of Sciences" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-briefcase"></i> Internship – Digital & Web</h3>
+      <p>Completed internship in Digital Marketing & Web Development.</p>
+      <span class="date">May 29, 2024</span>
+    </div>
+  </a>
+  
+   <!-- 3. Guest Speaker – Superior Group (June 2, 2022) -->
+<a class="card" href="certificates/hackathon-x-champion.pdf" target="_blank">
+    <img src="Certificates/3.jpg" alt="Guest Speaker – Superior Group" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-microphone"></i> Guest Speaker – Programming</h3>
+      <p>Invited by Superior Group of Colleges, Toba to deliver a lecture on programming.</p>
+      <span class="date">June 2, 2022</span>
+    </div>
+  </a>
+  
+   
+        <!-- 4. Internship – ISD (March 12, 2024) -->
+<a class="card" href="certificates/web-dev-contest.pdf" target="_blank">
+    <img src="Certificates/4.jpg" alt="Internship – ISD" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-user-secret"></i> Internship – Ethical Hacking</h3>
+      <p>Completed ethical hacking internship at Institute of Skill Development (ISD).</p>
+      <span class="date">March 12, 2024</span>
+    </div>
+  </a>
+  
+   <!-- 5. Guest Speaker – AI Lecture (May 13, 2023) -->
+<a class="card" href="certificates/ai-guest-speaker.pdf" target="_blank">
+    <img src="Certificates/5.jpg" alt="Guest Speaker – AI Lecture" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-microphone"></i> Guest Speaker – AI Lecture</h3>
+      <p>Delivered a session on AI at Agriculture University Sub Campus, Toba Tek Singh.</p>
+      <span class="date">May 13, 2023</span>
+    </div>
+  </a>
+  
+   
+       <!-- 6. Internship – Graphic Designing (Nov 1, 2023) -->
+<a class="card" href="certificates/graphic-design-internship.pdf" target="_blank">
+    <img src="Certificates/6.png" alt="Internship – Graphic Designing" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-pen-nib"></i> Internship – Graphic Design</h3>
+      <p>Completed graphic designing internship at Global Science Academy.</p>
+      <span class="date">Nov 1, 2023</span>
+    </div>
+  </a>
+  
+   
+         <!-- 7. Excellence – Python Course (Dec 2021) -->
+         <a class="card" href="certificates/python-excellence.pdf" target="_blank">
+           <img src="Certificates/7.jpg" alt="Excellence – Python Course" />
+           <div class="card-content">
+             <h3><i class="fa-brands fa-python"></i> Excellence – Python</h3>
+             <p>Graduated with distinction in advanced Python.</p>
+             <span class="date">Dec 2021</span>
+           </div>
+         </a>
+   
+      <!-- 7. Course – Graphic Designing (Sept 12, 2023) -->
+<a class="card" href="certificates/graphic-design-course.pdf" target="_blank">
+    <img src="Certificates/8.png" alt="Course – Graphic Designing" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-paintbrush"></i> Course – Graphic Design</h3>
+      <p>Successfully completed a professional course in graphic designing.</p>
+      <span class="date">Sept 12, 2023</span>
+    </div>
+  </a>
+  
+   
+        <!-- 8. Course – Web Development (May 2023) -->
+<a class="card" href="certificates/web-development-course.pdf" target="_blank">
+    <img src="Certificates/9.png" alt="Course – Web Development" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-laptop-code"></i> Course – Web Development</h3>
+      <p>Completed a full‑stack web development course at TechBridge Institute.</p>
+      <span class="date">May 2021</span>
+    </div>
+  </a>
+  
+   
+       <!-- 9. Internship – Digital Marketing (Apr 2022) -->
+<a class="card" href="certificates/digital-marketing-internship.pdf" target="_blank">
+    <img src="Certificates/11.png" alt="Internship – Digital Marketing" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-bullhorn"></i> Internship – Digital Marketing</h3>
+      <p>Completed 6-month internship in Digital Marketing at Khan Academy of Sciences.</p>
+      <span class="date">Apr 3, 2022</span>
+    </div>
+  </a>
+  
+      <!-- 10. Contribution – Cyber Awareness (Jan 2023) -->
+<a class="card" href="certificates/cyber-awareness-contribution.pdf" target="_blank">
+    <img src="Certificates/10.jpg" alt="Contribution – Cyber Awareness" />
+    <div class="card-content">
+      <h3><i class="fa-solid fa-shield-halved"></i> Contribution – Cyber Awareness</h3>
+      <p>Delivered a lecture on cyber awareness at Queen Mary College Lahore.</p>
+      <span class="date">Jan 25, 2023</span>
+    </div>
+  </a>
+  
+         <!-- 12. 2nd Place – SQL Challenge (Mar 2023) -->
+         <a class="card" href="certificates/sql-challenge.pdf" target="_blank">
+           <img src="Certificates/12.png" alt="2nd Place – SQL Challenge" />
+           <div class="card-content">
+             <h3><i class="fa-solid fa-database"></i> 2nd Place – SQL Challenge</h3>
+             <p>Solved data‑analysis tasks using advanced SQL queries.</p>
+             <span class="date">Mar 2021</span>
+           </div>
+         </a>
+   
+       </div> <!-- /grid -->
+     </div> <!-- /container -->
+   
+     <!-- ------------- Scroll‑to‑top button --------------- -->
+     <div id="toTop" title="Back to top"><i class="fa-solid fa-chevron-up"></i></div>
+   
+     <script>
+       /* =====================================================
+          JS: Toggle the scroll‑to‑top button visibility & action
+          ===================================================== */
+       const toTop = document.getElementById("toTop");
+   
+       // Show button after scrolling 400px
+       window.addEventListener("scroll", () => {
+         if (window.scrollY > 400) {
+           toTop.classList.add("show");
+         } else {
+           toTop.classList.remove("show");
+         }
+       });
+   
+       // Smooth scroll back to top
+       toTop.addEventListener("click", () => {
+         window.scrollTo({ top: 0, behavior: "smooth" });
+       });
+     </script>
+   </body>
+   </html>
+   
