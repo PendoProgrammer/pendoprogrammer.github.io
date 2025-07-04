@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Download CV Button
-    const downloadBtn = document.querySelector('.download-cv');
+    const downloadBtn = document.querySelector('My Resume.pdf');
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
